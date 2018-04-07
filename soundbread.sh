@@ -7,5 +7,5 @@ mkdir Github
 cd Github
 git clone https://github.com/mindrenee/soundbread-nodejs.git
 cd soundbread-nodejs
-npm Install
+npm install
 LOCAL=1 npm start
