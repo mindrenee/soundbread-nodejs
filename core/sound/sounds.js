@@ -1,7 +1,7 @@
 var sounds;
 
 sounds = [
-  {src: 'crickets.mp3', img: 'cricket.jpg', id: 'crickets', title: 'Crickets'},
+  {src: 'crickets.mp3', img: 'cricket.jpg', id: 'crickets', title: 'Crickets', categorie: 'politiek'},
   {src: 'downer.mp3', img: 'sadtrombone.jpg', id: 'downer', title: 'Downer'},
   {src: 'rimshot.mp3', img: 'rimshot.jpg', id: 'rimshot', title: 'Rimshot'},
   {src: 'shame.mp3', img: 'shame.jpg', id: 'shame', title: 'Shame'},
@@ -39,8 +39,8 @@ sounds = [
   {src: 'bright.mp3', img: 'bright.jpg', id: 'bright', title: 'Bright Light', cost: 1},
   {src: 'goedzo.mp3', img: 'goedzo.jpg', id: 'goedzo', title: 'Wel Goed Zo Hoor!', cost: 1},
   {src: 'water.mp3', img: 'water.jpg', id: 'water', title: 'Water?', cost: 1},
-  {src: 'buma.mp3', img: 'buma.jpg', id: 'buma', title: 'Dat is toch niet te geloven?', cost: 1},
-  {src: 'goodmorning.mp3', img: 'goodmorning.jpg', id: 'goodmorning', title: 'Good Morning', cost: 1},
+  {src: 'buma.mp3', img: 'buma.jpg', id: 'buma', title: 'Dat is toch niet te geloven?', cost: 1, categorie: 'politiek'},
+  {src: 'goodmorning.mp3', img: 'goodmorning.jpg', id: 'goodmorning', title: 'Good Morning', cost: 1, categorie: 'serie'},
   // Keep hidden: true at end to not show hints in shortcuts
   {src: 'maniacal.mp3', img: 'maniacal.jpg', id: 'maniacal', title: 'Maniacal', hidden:true},
   {src: 'gaaay.mp3', img: 'gaaay.jpg', id: 'gaaay', title: 'Gaaay', hidden: true},

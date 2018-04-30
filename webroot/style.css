@@ -1,0 +1,140 @@
+.navbar {
+  margin-bottom: 0px;
+}
+
+#content {
+  width: 100%;
+  font-size: 0;
+}
+
+#content > div {
+  font-size: 12pt;
+}
+
+.gridBox {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(img/button.jpg);
+  width: 190px;
+  height: 190px;
+  position: relative;
+  opacity: 0.5;
+  margin: 5px;
+  
+}
+.gridBox:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+
+.gridBox.active{
+  -webkit-filter: contrast(50%);
+  filter: contrast(50%);
+  opacity: 1;
+}
+
+.gridBox .label {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #333333;
+}
+
+.gridBox .cost {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 16pt;
+  font-weight: bold;
+  color: white;
+  background-color: #337ab7;
+  background: radial-gradient(circle, rgba(51, 122, 183, 0.5), rgba(0, 0, 255, 0.5));
+  border-radius: 50%;
+  width: 26pt;
+  height: 26pt;
+  line-height: 26pt;
+  text-align: center;
+}
+
+.keyhint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 48pt;
+  color: blue;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20pt;
+  padding: 0 8pt;
+}
+
+#toastcontainer {
+  width: 250px;
+  height: 10px;
+  height: auto;
+  left: 50%;
+  position: fixed;
+  margin-left: -100px;
+  bottom: 10px;
+}
+
+.toast {
+  width: 200px;
+  height: 20px;
+  height: auto;
+  left: 50%;
+  margin: 4px;
+  background-color: #383838;
+  color: #f0f0f0;
+  font-size: 12px;
+  padding: 6px;
+  text-align: center;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 9px 24px -1px rgba(56, 56, 56, 1);
+  -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+  box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+}
+
+#error {
+  display: none;
+}
+
+#ytplayer {
+  width: 1px;
+  height: 1px;
+}
+
+#ytpopup {
+  display: none;
+  position: fixed;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 178px;
+  margin-top: -200px;
+  margin-left: -160px;
+  padding: 0 10px 10px;
+}
+
+#ytpopup h1 {
+  background-color: red;
+  margin: 0 -10px 10px;
+  padding: 0 10px;
+}
+
+#ytpopup label {
+  width: 30%;
+  text-align: right;
+}
+
+#ytpopup label + input {
+  width: 60%;
+  margin: 0;
+}
+
+#ytpopup input + input {
+  margin: 0 auto 0 10px;
+}
