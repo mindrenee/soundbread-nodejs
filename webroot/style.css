@@ -11,6 +11,16 @@
   font-size: 12pt;
 }
 
+.form-check {
+  display: inline-block;
+  margin-top: 0,5rem;
+  margin-bottom: 0,5rem;
+}
+
+.form-inline {
+  margin-right: 75px;
+}
+
 .gridBox {
   display: inline-block;
   background-repeat: no-repeat;
@@ -20,7 +30,7 @@
   position: relative;
   opacity: 0.5;
   margin: 5px;
-  
+
 }
 .gridBox:hover{
   cursor: pointer;
@@ -68,6 +78,14 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20pt;
   padding: 0 8pt;
+}
+
+.nav-tabs {
+  margin-top: 5px;
+}
+
+.navbar-text {
+  margin: 5px;
 }
 
 #toastcontainer {
