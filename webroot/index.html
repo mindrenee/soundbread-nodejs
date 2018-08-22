@@ -3,169 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>SoundBread</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" > -->
+
+    <link rel="stylesheet" href="style.css">
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="jquery-2.2.3.min.js"></script>
     <script src="soundjs-0.6.2.min.js"></script>
     <script src="settings.js"></script>
-    <script src="soundbread.js"></script>
+    <script src="soundbreadtabs.js"></script>
 
     <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
 
-    <style>
-      .navbar {
-        margin-bottom: 0px;
-      }
-
-      #content {
-        width: 100%;
-        font-size: 0;
-      }
-
-      #content > div {
-        font-size: 12pt;
-      }
-
-      .gridBox {
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-image: url(img/button.jpg);
-        width: 190px;
-        height: 190px;
-        position: relative;
-        opacity: 0.5;
-      }
-      .gridBox:hover{
-        cursor: pointer;
-        opacity: 1;
-      }
-
-      .gridBox.active{
-        -webkit-filter: contrast(50%);
-        filter: contrast(50%);
-        opacity: 1;
-      }
-
-      .gridBox .label {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background-color: #333333;
-      }
-
-      .gridBox .cost {
-        display: none;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        font-size: 16pt;
-        font-weight: bold;
-        color: white;
-        background-color: #337ab7;
-        background: radial-gradient(circle, rgba(51, 122, 183, 0.5), rgba(0, 0, 255, 0.5));
-        border-radius: 50%;
-        width: 26pt;
-        height: 26pt;
-        line-height: 26pt;
-        text-align: center;
-      }
-
-      .keyhint {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        font-size: 48pt;
-        color: blue;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 20pt;
-        padding: 0 8pt;
-      }
-
-      #toastcontainer {
-        width: 250px;
-        height: 10px;
-        height: auto;
-        left: 50%;
-        position: fixed;
-        margin-left: -100px;
-        bottom: 10px;
-      }
-
-      .toast {
-        width: 200px;
-        height: 20px;
-        height: auto;
-        left: 50%;
-        margin: 4px;
-        background-color: #383838;
-        color: #f0f0f0;
-        font-size: 12px;
-        padding: 6px;
-        text-align: center;
-        border-radius: 6px;
-        -webkit-box-shadow: 0px 9px 24px -1px rgba(56, 56, 56, 1);
-        -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
-        box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
-      }
-
-      #error {
-        display: none;
-      }
-
-      #ytplayer {
-        width: 1px;
-        height: 1px;
-      }
-
-      #ytpopup {
-        display: none;
-        position: fixed;
-        background-color: white;
-        top: 50%;
-        left: 50%;
-        width: 300px;
-        height: 178px;
-        margin-top: -200px;
-        margin-left: -160px;
-        padding: 0 10px 10px;
-      }
-
-      #ytpopup h1 {
-        background-color: red;
-        margin: 0 -10px 10px;
-        padding: 0 10px;
-      }
-
-      #ytpopup label {
-        width: 30%;
-        text-align: right;
-      }
-
-      #ytpopup label + input {
-        width: 60%;
-        margin: 0;
-      }
-
-      #ytpopup input + input {
-        margin: 0 auto 0 10px;
-      }
-    </style>
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
       <div class="container-fluid">
         <div class="navbar-header">
           <p class="navbar-brand">SoundBread</p>
         </div>
-        <div class="collapse navbar-collapse">
+        <form class="form-inline my-2 my-lg-0">
           <p class="navbar-text">Clients connected: <span id="clients">0</span></p>
-          <p class="navbar-text"><input type="text" id="userid" name="userid" value="Gebruiker X" onChange="updateName(this.value)"/></p>
-          <p class="navbar-text"><input type="checkbox" id="ytEnabled" onChange="ytSetEnabled(this.checked)"/><label for="ytEnabled">Enable youtube</label></p>
-        </div>
+          <p class="navbar-text"><input class="form-control mr-sm-2" type="text" id="userid" name="userid" value="Gebruiker X" onChange="updateName(this.value)"></p>
+          <div class="form-check">
+            <input type="checkbox" id="ytEnabled" onChange="ytSetEnabled(this.checked)"/>
+            <label for="ytEnabled">Enable youtube</label>
+          </div>
+        </form>
       </div>
     </nav>
 
@@ -177,31 +47,57 @@
       </div>
     </div>
 
-    <div id="content"></div>
+    <nav>
+      <div class="container-fluid">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="politiek-tab" data-toggle="tab" href="#politiek" role="tab" aria-controls="politiek" aria-selected="false">Politiek</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="dumpert-tab" data-toggle="tab" href="#dumpert" role="tab" aria-controls="dumpert" aria-selected="false">Dumpert</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="serie-tab" data-toggle="tab" href="#serie" role="tab" aria-controls="serie" aria-selected="false">Series</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="film-tab" data-toggle="tab" href="#film" role="tab" aria-controls="film" aria-selected="false">Film</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="games-tab" data-toggle="tab" href="#games" role="tab" aria-controls="games" aria-selected="false">Games</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-   <div>
-      Press '?' for key hints
-   </div>
 
-    <div id="error">
-      <h2>Sorry!</h2>
-      <p>SoundBread is not currently in your browser</p>
+
+    <!-- <div id="content"></div> -->
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+      <div class="tab-pane fade" id="politiek" role="tabpanel" aria-labelledby="politiek-tab"></div>
+      <div class="tab-pane fade" id="dumpert" role="tabpanel" aria-labelledby="dumpert-tab"></div>
+      <div class="tab-pane fade" id="serie" role="tabpanel" aria-labelledby="serie-tab"></div>
+      <div class="tab-pane fade" id="film" role="tabpanel" aria-labelledby="film-tab"></div>
+      <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab"></div>
     </div>
 
-    <a href="https://github.com/SoundBread/soundbread-nodejs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
-
-    <div id="toastcontainer"></div>
-
-    <div id="ytpopup" style="border: solid black 1px">
-      <h1>Youtube</h1>
-      <label>ID:</label> <input type="text" id="ytId" value="7jiaU0xbOKs"/>
-      <label>Start (sec):</label> <input type="number" id="ytStart" value="31"/>
-      <label>End (sec):</label> <input type="number" id="ytEnd" value="46"/>
-      <input type="button" value="Test" onClick="playYoutube($('#ytId').val(), $('#ytStart').val(), $('#ytEnd').val())"/>
-      <input type="button" value="Send" onClick="sendYoutube($('#ytId').val(), $('#ytStart').val(), $('#ytEnd').val()); $('#ytpopup').hide()"/>
-      <div id="ytstatus">Status info</div>
+    <div>
+       Press '?' for key hints
     </div>
 
-    <div id="ytplayer"></div>
+     <div id="error">
+       <h2>Sorry!</h2>
+       <p>SoundBread is not currently in your browser</p>
+     </div>
+
+     <a href="https://github.com/SoundBread/soundbread-nodejs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+     <div id="toastcontainer"></div>
+
   </body>
+
 </html>

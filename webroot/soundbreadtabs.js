@@ -26,7 +26,7 @@ var ytplayer;
 
 $(document).ready(function() {
 	var client_version;
-	var keycodes = $('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'.split('')).map(function(i, c) { return c.charCodeAt(0); }).get();
+	// var keycodes = $('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'.split('')).map(function(i, c) { return c.charCodeAt(0); }).get();
 
 	var maxcredits = 5;
 	$('#credits').attr('aria-valuemax', maxcredits);
@@ -54,7 +54,7 @@ $(document).ready(function() {
 	createjs.Sound.registerSounds(sounds, assetsPath);
 
 	$(sounds).each(function(i, sound) {
-		var keycode = keycodes[i];
+		// var keycode = keycodes[i];
 
 		var labeldiv = $('<div>');
 		labeldiv.attr('class', 'label');
@@ -71,31 +71,54 @@ $(document).ready(function() {
 			sounddiv.attr('style', sounddiv.attr('style') + '; display: none');
 		}
 		sounddiv.attr('class', 'soundItem gridBox');
-		sounddiv.attr('data-keycode', keycode);
+		// sounddiv.attr('data-keycode', keycode);
 		sounddiv.append(labeldiv);
 		sounddiv.append(costdiv);
 
 		var categorie = sound.categorie === undefined ? 'home' : sound.categorie;
 
 		$('#'+categorie).append(sounddiv);
-		console.log($('#'+categorie));
 
-		var hintkey = String.fromCharCode(keycode);
-		var hintdiv = $('<div class="keyhint">' + hintkey + '</div>');
-		hintdiv.hide();
-		sounddiv.append(hintdiv);
+		// var hintkey = String.fromCharCode(keycode);
+		// var hintdiv = $('<div class="keyhint">' + hintkey + '</div>');
+		// hintdiv.hide();
+		// sounddiv.append(hintdiv);
 
 		sounddiv.click(function() {
 			var self = this;
 			var id = $(self).attr('id');
 
 			var playData = {soundId: id, hiddenid: hiddenid};
-			console.log(playData);
-			console.log('< play ' + playData.soundId);
+			// console.log(playData);
+			// console.log('< play ' + playData.soundId);
 			socket.emit('play', playData);
 		});
 
 	});
+
+	// keyCode attribuut on Tab load
+	$('.nav-tabs .nav-item a').click(function(){
+		// Ruim de dingen uit de vorige tab op
+
+
+		// Nieuwe keycodes maken
+		var keycodes = $('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'.split('')).map(function(i, c) { return c.charCodeAt(0); }).get();
+
+		var elements = document.getElementsByClassName('soundItem');
+
+		for (var i=0; i<elements.length; i++) {
+			var keycode = keycodes[i];
+			var soundElement = document.getElementById(elements[i].id);
+			soundElement.setAttribute('data-keycode', keycode);
+
+			var hintkey = String.fromCharCode(keycode);
+			var hintdiv = $('<div class="keyhint">' + hintkey + '</div>');
+			hintdiv.hide();
+			soundElement.append(hintdiv);
+		}
+
+	});
+
 
 	// Simple keybinding
 	$(document).keydown(function(e){
